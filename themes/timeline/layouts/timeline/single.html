@@ -116,7 +116,7 @@
     {{ end }}
 
 
-    {{ if .Site.DisqusShortname }}
+    {{ if .Site.Config.Services.Disqus.Shortname }}
       {{ if not (eq .Params.Comments "false") }}
         <div id="comments">
           {{ template "_internal/disqus.html" . }}
