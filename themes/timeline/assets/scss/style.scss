@@ -4,7 +4,9 @@ $light-primary: #C5CAE9;
 $text: #FFFFFF;
 $primary-text: #212121;
 $secondary-text: #757575;
-$accent: #FF4081;
+// $accent: #FF4081;
+$accent: #46b4ff;
+
 
 
 .hero-table { 
@@ -90,6 +92,13 @@ section {
 		right: -15px;
 		border-width: 10px 0 10px 15px;
 		border-color: transparent transparent transparent #f5f5f5;
+	}
+	.dark-theme & {
+		background: #252627;
+
+		&::after {
+			border-color: transparent transparent transparent #252627;
+		}
 	}
 }
 

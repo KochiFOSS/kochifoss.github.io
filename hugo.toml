@@ -2,3 +2,6 @@ baseURL = 'https://example.org/'
 languageCode = 'en-us'
 title = 'Kochi Foss'
 theme = 'timeline'
+
+[params]
+logo.logoCursorDisabled = true
