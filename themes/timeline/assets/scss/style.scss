@@ -63,7 +63,17 @@ section {
 				border-width: 10px 15px 10px 0;
 				border-color: transparent #f5f5f5 transparent transparent;
 			}
+
+			.dark-theme & {
+				background: #252627;
+		
+				&::after {
+					border-color: transparent #252627 transparent transparent ;
+				}
+			}
 		}
+		
+
 	}
 
 	&::after {
