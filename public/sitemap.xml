@@ -2,10 +2,10 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>//localhost:1313/categories/</loc>
+    <loc>kochifoss.github.io/categories/</loc>
   </url><url>
-    <loc>//localhost:1313/</loc>
+    <loc>kochifoss.github.io/</loc>
   </url><url>
-    <loc>//localhost:1313/tags/</loc>
+    <loc>kochifoss.github.io/tags/</loc>
   </url>
 </urlset>
