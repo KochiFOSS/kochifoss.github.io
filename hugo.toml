@@ -1,13 +1,4 @@
-<<<<<<< HEAD
-baseURL = 'https://example.org/'
-languageCode = 'en-us'
-title = 'Kochi Foss'
-theme = 'timeline'
-
-[params]
-logo.logoCursorDisabled = true
-=======
 baseURL = 'kochifoss.github.io'
 languageCode = 'en-us'
 title = 'KochiFOSS'
->>>>>>> master
+theme = 'timeline'
