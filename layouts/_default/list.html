@@ -40,7 +40,7 @@
         {{ if .Params.isFuture }}
 
         <div class="flex justify-center mb-4 lg:mb-8">
-          <div class="flex flex-col gap-y-2 bg-gray-300 py-4 px-8 rounded-lg">
+          <div class="flex flex-col gap-y-2 bg-gray-200 py-4 px-8 rounded-lg">
             <h2 class="font-bold text-xl">{{ .Params.title }}</h2>
             <p class="flex-col space-y-4">
             <div>Host: <a class="font-bold space-y-2 text-blue-500 underline" href={{ .Params.hostLocation }}>{{
@@ -50,11 +50,11 @@
             <div>Time & Date: <span class="font-bold">{{ .Params.eventDate }}</span></div>
             </p>
             <div class="flex space-x-4 flex-row justify-center">
-              <button class="flex items-center bg-green-500 w-3/12 rounded-lg hover:bg-green-400 justify-center">
-                <a href={{ .Params.rsvpLink }} class="text-sm lg:text-lg text-white font-bold py-1">RSVP</a>
+              <button class="flex items-center bg-green-500 w-3/12 lg:py-2 rounded-lg hover:bg-green-400 justify-center">
+                <a href={{ .Params.rsvpLink }} class="text-xs lg:text-sm text-white font-bold py-1">RSVP</a>
               </button>
-              <button class="flex items-center bg-green-500 w-3/12 rounded-lg hover:bg-green-400 justify-center">
-                <a href={{ .Params.cfpLink }} class="text-sm lg:text-lg
+              <button class="flex items-center bg-green-500 w-3/12 lg:py-2 rounded-lg hover:bg-green-400 justify-center">
+                <a href={{ .Params.cfpLink }} class="text-xs lg:text-sm
                  text-white font-bold py-1">Call for speakers</a>
               </button>
             </div>
@@ -77,12 +77,12 @@
             <h2 class="text-sm lg:text-lg font-semibold mb-1">{{ .Params.title }}</h2>
             <p class="text-gray-600 mb-4 text-xs lg:text-sm">Meetup hosted at {{ .Params.host }}</p>
             <div class="flex space-x-4">
-              <button class="flex items-center border border-gray-500 lg:w-48 px-2 py-1 rounded-lg text-gray-700">
+              <button class="flex items-center border border-gray-500 lg:w-48 px-2 py-2 lg:py-1  rounded-lg text-gray-700">
                 <span class="text-xs lg:text-lg">📄</span>
                 <a href={{ .Params.path }} class="text-xs lg:text-sm">Read more</a>
               </button>
               <button
-                class="flex items-center space-x-2 border border-gray-500 lg:w-48 px-2 py-1 text-gray-700 rounded-lg hover:bg-white">
+                class="flex items-center space-x-2 border border-gray-500 lg:w-48 px-2 py-2 lg:py-1 text-gray-700 rounded-lg hover:bg-white">
                 <span class="text-xs lg:text-lg">🎥</span>
                 <a href={{ .Params.highlightsLink }} class="text-xs lg:text-sm">View highlights</a>
               </button>
@@ -94,6 +94,7 @@
       </div>
     </div>
     {{ end }}
+    {{ template "_internal/pagination.html" . }}
   </div>
 </div>
 {{ end }}
