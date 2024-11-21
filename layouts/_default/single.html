@@ -1,40 +1,43 @@
 {{ define "main" }}
-<main class="post"> 
+<div class="container mx-auto px-4 lg:px-24 py-2">
+    <!-- Single Text -->
+    <div class="mb-4">
+      <p class="text-2xl font-bold">{{ .Params.title }}</p>
+    </div>
 
-    <article>
-        <h2 class="post-title"><a href="{{ .Permalink }}">{{ .Title | markdownify }}</a></h2>
+    <!-- Two Texts -->
+    <div class="flex flex-col mb-4">
+      <p class="text-lg mr-2 text-sm lg:text-lg">Host: <a href={{ .Params.hostLocation }} class="underline">{{ .Params.host }}</a></p>
+      <p class="text-lg mr-2 text-sm lg:text-lg">Time & Date: {{ .Params.eventTime }}, {{ .Params.eventDate }}</p>
+    </div>
 
-        {{- if .Params.toc }}
-            <hr />
-            <aside id="toc">
-            <div class="toc-title">{{ i18n "tableOfContents" }}</div>
-                {{ .TableOfContents }}
-            </aside>
-            <hr />
-        {{- end }}
+    <!-- Two Buttons in a Row -->
+    <div class="flex mb-4 font-bold ">
+      <button class="bg-green-500 text-white px-4 py-2 rounded mr-4"> <a href={{ if .Params.isFuture}} {{ .Params.rsvpLink }}{{else}} {{ .Params.highlightsLink }}{{end}}>{{ if .Params.isFuture}} RSVP {{else}} 🎥 View highlights {{end}}</a></button>
+      {{ if .Params.isFuture}}
+      <button class="bg-green-500 text-white px-4 py-2 rounded"> <a href={{ .Params.cfpLink }}>Call for speakers</a></button>
+      {{ end }}
+    </div>
 
-        {{ with .Params.Cover }}
-            <img src="/{{ . }}" class="post-cover" />
-        {{ end }}
+    {{ .Content }}
 
-        <div class="post-content">
-            {{ .Content }} 
+    <!-- Section to Display List of Talks Posters -->
+    {{/*  <div class="mt-8">
+      <h2 class="text-2xl font-bold mb-4">Talks Posters</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <!-- Example Poster Item -->
+        <div class="bg-white shadow-md rounded-lg p-4">
+          <img src="https://via.placeholder.com/150" alt="Talk Poster" class="w-full h-48 object-cover rounded">
+          <h3 class="text-lg font-semibold mt-2">Talk Title 1</h3>
+          <p class="text-gray-600">Speaker Name</p>
         </div>
-    </article>
-
-    <hr />
-
-    <div class="post-info">
-          {{- with .Params.tags }}
-              <p>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg>
-                  {{- range . -}}
-                       <span class="tag"><a href="{{ "tags/" | absLangURL }}{{ . | urlize }}">{{.}}</a></span>
-                  {{- end }}
-              </p>
-          {{- end }}
-
-         
+        <div class="bg-white shadow-md rounded-lg p-4">
+          <img src="https://via.placeholder.com/150" alt="Talk Poster" class="w-full h-48 object-cover rounded">
+          <h3 class="text-lg font-semibold mt-2">Talk Title 2</h3>
+          <p class="text-gray-600">Speaker Name</p>
+        </div>
+        <!-- Add more posters as needed -->
       </div>
-</main>
+    </div>  */}}
+  </div>
 {{ end }}
