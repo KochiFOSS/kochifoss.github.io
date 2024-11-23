@@ -1,0 +1,103 @@
+{{ define "main" }}
+<div class="container mx-auto min-h flex flex-col items-center justify-center">
+  <center>
+    <div class="w-full lg:w-72">
+      <img src="https://kochifoss.org/images/group.png" alt="Landing Image"
+        class="w-1/2 h-1/2 lg:w-full lg:h-auto object-cover rounded-lg shadow-lg">
+    </div>
+    <div class="w-full p-8">
+      <h1 class="text-3xl lg:text-5xl font-bold mb-4">Kochi FOSS</h1>
+      <p class="text-sm lg:text-lg lg:w-3/4 mb-6">A freewheeling community of developers and enthusiasts of Free (Libre)
+        and Open Source Software who gather in person for laid-back meetups in Kochi, India.</p>
+      {{/*  <a href="https://ee.kobotoolbox.org/ZZ7WnC6D"
+        class="inline-block bg-green-500 text-white font-bold px-6 py-3 rounded-md text-xs lg:text-sm">RSVP for next
+        meet</a>  */}}
+    </div>
+    <div
+      class="mx-auto flex flex-col lg:flex-row justify-center items-center space-y-8 lg:my-10 md:space-x-20 md:space-y-0">
+      <a href="https://matrix.to/#/#kochifoss:matrix.org"
+        class="flex items-center lg:space-x-2 hover:text-green-800 text-sm lg:text-lg">
+        <span>Matrix<br />#kochifoss:matrix.org</span>
+      </a>
+      <a href="https://xmpp.link/#kochifoss@chat.disroot.org?join"
+        class="flex items-center lg:space-x-2 hover:text-green-800 text-sm lg:text-lg">
+        <span>XMPP<br />kochifoss@chat.disroot.org</span>
+      </a>
+      <a href="https://t.me/KochiFOSS" class="flex items-center lg:space-x-2 hover:text-green-800 text-sm lg:text-lg">
+        <span>Telegram<br />@KochiFOSS</span>
+      </a>
+    </div>
+  </center>
+
+  <div class="my-4">
+    {{ range .Paginator.Pages}}
+    <div class=" flex items-center justify-center">
+      <div class="flex items-center space-x-4">
+
+        {{ if .Params.isFuture }}
+
+        <div class="flex justify-center mb-4 lg:mb-8">
+          <div class="flex flex-col gap-y-2 bg-gray-200 py-4 px-8 rounded-lg">
+            <center>
+            <h2 class="font-bold text-xl items-center">{{ .Params.title }}</h2>
+            <p class="flex-col space-y-4 mt-2">
+            <div>Host: <a class="font-bold space-y-2 text-blue-500 underline" href={{ .Params.hostLocation }}>{{
+                .Params.host }}</a>
+            </div>
+            <div>{{ .Params.description }}</div>
+            <div>Time & Date: <span class="font-bold">{{ .Params.eventDate }}</span></div>
+            </p>
+          </center>
+            <div class="flex flex-col items-center lg:flex-row justify-center">
+              <button class="flex items-center bg-green-500 w-3/12 py-1 rounded-lg hover:bg-green-400 justify-center whitespace-nowrap">
+                <a href={{ .Params.rsvpLink }} class="text-xs lg:text-sm text-white font-bold py-1">RSVP</a>
+              </button>
+              <button class="flex items-center bg-green-500 py-1 px-2 lg:mt-0 lg:ms-2 mt-2 rounded-lg hover:bg-green-400 justify-center whitespace-nowrap">
+                <a href={{ .Params.cfpLink }} class="text-xs lg:text-sm
+                 text-white font-bold py-1">Call for speakers</a>
+              </button>
+            </div>
+
+            <center>
+              <p class="text-sm mt-2 lg:mt-4">
+                {{ .Params.note }}<a class="font-bold space-y-2 text-blue-500 underline inline"
+                  style="text-decoration: none;" href={{ .Params.noteLink }}>🔗</a>
+              </p>
+            </center>
+          </div>
+        </div>
+        {{ else }}
+        <div class="flex flex-row">
+          <div class="text-gray-800 text-xs lg:text-sm mx-3 lg:w-1/2 py-6">{{ .Params.eventDate }}</div>
+
+        <div class="inline-block w-0.5 self-stretch bg-gray-400"></div>
+
+
+        <div class="flex flex-col py-4 lg:w-1/2">
+          <div class="px-4">
+            <h2 class="text-sm lg:text-lg font-semibold mb-1">{{ .Params.title }}</h2>
+            <p class="text-gray-600 mb-4 text-xs lg:text-sm whitespace-nowrap">{{ .Params.host }}</p>
+            <div class="flex space-x-4">
+              <div class="flex items-center border border-gray-500 px-2 py-1 rounded-lg hover:bg-white text-gray-700 whitespace-nowrap">
+                <span class="text-xs lg:text-sm">📄</span>
+                <a href={{ .Params.path }} class="text-xs lg:text-sm ms-1">Read more</a>
+              </div>
+              <button
+                class="flex items-center space-x-2 border border-gray-500 px-2 py-1 text-gray-700 rounded-lg hover:bg-white  whitespace-nowrap">
+                <span class="text-xs lg:text-sm">🎥</span>
+                <a href={{ .Params.highlightsLink }} class="text-xs lg:text-sm">View highlights</a>
+              </button>
+            </div>
+          </div>
+        </div>
+        </div>
+        {{ end }}
+      </div>
+    </div>
+    {{ end }}
+    <center>
+      {{ template "_internal/pagination.html" . }}
+    </center>
+  </div>
+</div>
+{{ end }}
