@@ -13,35 +13,22 @@
 
     <!-- Two Buttons in a Row -->
     <div class="flex mb-4 font-bold ">
-      <button class="bg-green-500 text-white px-4 py-2 rounded mr-4"> <a href={{ if .Params.isFuture}} {{ .Params.rsvpLink }}{{else}} {{ .Params.highlightsLink }}{{end}}>{{ if .Params.isFuture}} RSVP {{else}} 🎥 View highlights {{end}}</a></button>
+      <button class="bg-green-500 text-white px-4 py-2 rounded mr-4"> <a target="_blank" href={{ if .Params.isFuture}} {{ .Params.rsvpLink }}{{else}} {{ .Params.highlightsLink }}{{end}}>{{ if .Params.isFuture}} RSVP {{else}} 🎥 View highlights {{end}}</a></button>
       {{ if .Params.isFuture}}
-      <button class="bg-green-500 text-white px-4 py-2 rounded"> <a href={{ .Params.cfpLink }}>Call for speakers</a></button>
+        <button class="bg-green-500 text-white px-4 py-2 rounded"> <a href={{ .Params.cfpLink }}>Call for speakers</a></button>
       {{ end }}
     </div>
 
-    {{ .Content }}
+    <div id="article-content">
+      {{ .Content }}
+    </div>
 
-    <!-- Section to Display List of Talks Posters -->
-    <div class="mt-8">
-      <h2 class="text-2xl font-bold mb-4">Gallery</h2>
-
-      <img src={{ .Params.imageBig }} alt="Talk Poster" class="w-full rounded">
-      
-      {{/* <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-        <!-- Example Poster Item -->
-        <div class="bg-white shadow-md rounded-lg p-4">
-          <img src="https://via.placeholder.com/150" alt="Talk Poster" class="w-full h-48 object-cover rounded">
-          <h3 class="text-lg font-semibold mt-2">Talk Title 1</h3>
-          <p class="text-gray-600">Speaker Name</p>
-        </div>
-        <div class="bg-white shadow-md rounded-lg p-4">
-          <img src="https://via.placeholder.com/150" alt="Talk Poster" class="w-full h-48 object-cover rounded">
-          <h3 class="text-lg font-semibold mt-2">Talk Title 2</h3>
-          <p class="text-gray-600">Speaker Name</p>
-        </div>
-        <!-- Add more posters as needed -->
-      </div>
-    </div>  */}}
-
+    <style>
+      #article-content img {
+        display: inline-block;
+        max-width: 400px;
+        margin: 5px;
+      }
+    </style>
   </div>
 {{ end }}
