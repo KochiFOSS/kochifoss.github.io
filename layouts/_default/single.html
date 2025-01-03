@@ -15,7 +15,7 @@
     <div class="flex mb-4 font-bold ">
       <button class="bg-green-500 text-white px-4 py-2 rounded mr-4"> <a target="_blank" href={{ if .Params.isFuture}} {{ .Params.rsvpLink }}{{else}} {{ .Params.highlightsLink }}{{end}}>{{ if .Params.isFuture}} RSVP {{else}} 🎥 View highlights {{end}}</a></button>
       {{ if .Params.isFuture}}
-        <button class="bg-green-500 text-white px-4 py-2 rounded"> <a href={{ .Params.cfpLink }}>Call for speakers</a></button>
+        <button class="bg-green-500 text-white px-4 py-2 rounded"> <a href={{ .Params.cfpLink }}>Propose a talk!</a></button>
       {{ end }}
     </div>
 

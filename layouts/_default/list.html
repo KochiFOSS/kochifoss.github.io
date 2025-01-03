@@ -39,25 +39,27 @@
         <div class="flex justify-center mb-4 lg:mb-8">
           <div class="flex flex-col gap-y-2 bg-gray-200 py-4 px-8 rounded-lg">
             <center>
-            <h2 class="font-bold text-xl items-center">{{ .Params.title }}</h2>
-            <p class="flex-col space-y-4 mt-2">
-            <div>Host: <a class="font-bold space-y-2 text-blue-500 underline" href={{ .Params.hostLocation }}>{{
-                .Params.host }}</a>
-            </div>
-            <div>{{ .Params.description }}</div>
-            <div>Time & Date: <span class="font-bold">{{ .Params.eventDate }}</span></div>
-            </p>
-          </center>
+              <h2 class="font-bold text-xl items-center">{{ .Params.title }}</h2>
+              <div class="flex-col space-y-2 my-4">
+                <div>
+                  Host: <a class="font-bold space-y-2 text-blue-500 underline" href="{{ .Params.hostLocation }}">{{
+                    .Params.host }}</a><br/>
+                </div>
+                <div>{{ .Params.hostCoords }}</div>
+                <div>{{ .Params.description }}</div>
+                <div>When: <span class="font-bold">{{ .Params.eventDate }}, {{ .Params.eventTime }}</span></div>
+              </div>
+            </center>
             <div class="flex flex-col items-center lg:flex-row justify-center">
-              {{ if .Params.rsvpLink }} }}
+              {{ if .Params.rsvpLink }}
                 <button class="flex items-center bg-green-500 w-3/12 py-1 rounded-lg hover:bg-green-400 justify-center whitespace-nowrap">
-                  <a href={{ .Params.rsvpLink }} class="text-xs lg:text-sm text-white font-bold py-1">RSVP</a>
+                  <a href="{{ .Params.rsvpLink }}" class="text-xs lg:text-sm text-white font-bold py-1 px-6">RSVP</a>
                 </button>
               {{ end }}
-              {{ if .Params.cfpLink }} }}
+              {{ if .Params.cfpLink }}
                 <button class="flex items-center bg-green-500 py-1 px-2 lg:mt-0 lg:ms-2 mt-2 rounded-lg hover:bg-green-400 justify-center whitespace-nowrap">
-                  <a href={{ .Params.cfpLink }} class="text-xs lg:text-sm
-                  text-white font-bold py-1">Call for speakers</a>
+                  <a href="{{ .Params.cfpLink }}" class="text-xs lg:text-sm
+                  text-white font-bold py-1 px-6">Propose a talk!</a>
                 </button>
               {{ end }}
             </div>
