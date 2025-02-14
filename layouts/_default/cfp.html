@@ -1,0 +1,24 @@
+{{ define "main" }}
+{{ $pages := where .Site.RegularPages "Section" "" }}
+{{ $sortedPages := sort $pages "Date" "desc" }}
+
+<div class="container mx-auto px-4 py-8">
+  <h1 class="text-3xl font-bold mb-4">Submit a Talk for KochiFOSS Meetup</h1>
+  
+  {{ if $sortedPages }}
+    {{ with (index $sortedPages 0) }}
+      {{ if .Params.cfpLink }}
+        <meta http-equiv="refresh" content="0; url={{ .Params.cfpLink }}">
+        <p class="mb-4">{{ .Title }}</p>
+        <p class="mb-4">Redirecting you to the Call for Papers form for the {{ .Params.eventDate }} meetup...</p>
+        <p class="mb-4">If you are not redirected automatically, <a href="{{ .Params.cfpLink }}" class="text-blue-600 hover:underline">click here</a>.</p>
+      {{ else }}
+        <p class="mb-4">{{ .Title }}</p>
+        <p class="mb-4">No Call for Papers form is currently available for the upcoming meetup.</p>
+      {{ end }}
+    {{ end }}
+  {{ else }}
+    <p class="mb-4">No upcoming meetups are currently scheduled. Please check back later.</p>
+  {{ end }}
+</div>
+{{ end }} 
