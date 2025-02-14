@@ -1,0 +1,24 @@
+{{ define "main" }}
+{{ $pages := where .Site.RegularPages "Section" "" }}
+
+<div class="container mx-auto px-4 py-8">
+  <h1 class="text-3xl font-bold mb-4">RSVP for KochiFOSS Meetup</h1>
+
+  {{ if not $pages }}
+    <p class="mb-4">No upcoming meetups are currently scheduled. Please check back later.</p>
+  {{ else }}
+    {{ $sortedPages := sort $pages "Date" "desc" }}
+    {{ with (index $sortedPages 0) }}
+      {{ if .Params.rsvpLink }}
+        <meta http-equiv="refresh" content="0; url={{ .Params.rsvpLink }}">
+        <p class="mb-4">{{ .Title }}</p>
+        <p class="mb-4">Redirecting you to the RSVP form for the {{ .Params.eventDate }} meetup...</p>
+        <p class="mb-4">If you are not redirected automatically, <a href="{{ .Params.rsvpLink }}" class="text-blue-600 hover:underline">click here</a>.</p>
+      {{ else }}
+        <p class="mb-4">{{ .Title }}</p>
+        <p class="mb-4">No RSVP form is currently available for the upcoming meetup.</p>
+      {{ end }}
+    {{ end }}
+  {{ end }}
+</div>
+{{ end }} 
