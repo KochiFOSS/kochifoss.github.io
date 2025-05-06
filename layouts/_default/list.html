@@ -1,20 +1,19 @@
 {{ define "main" }}
 <div class="container mx-auto min-h flex flex-col items-center justify-center">
-  <center>
-    <div class="w-full lg:w-72">
+    <div class="w-full lg:w-72 flex items-center justify-center" >
       <img src="https://kochifoss.org/images/group.png" alt="Landing Image"
         class="w-1/2 h-1/2 lg:w-full lg:h-auto object-cover rounded-lg shadow-lg">
     </div>
-    <div class="w-full p-8">
-      <h1 class="text-3xl lg:text-5xl font-bold mb-4">Kochi FOSS</h1>
-      <p class="text-sm lg:text-lg lg:w-3/4 mb-6">A freewheeling community of developers and enthusiasts of സ്വതന്ത്ര/Free/Libre
+    <div class="w-full p-8 flex flex-col items-center">
+      <img src="logo-color.svg" alt="Logo" class="w-2/3 h-2/3 md:w-1/4 md:h-1/4 mb-8">
+      <p class="text-sm lg:text-lg lg:w-3/4 lg:mb-6 text-center">A freewheeling community of developers and enthusiasts of സ്വതന്ത്ര/Free/Libre
         and Open Source Software who gather in person for laid-back meetups in Kochi, India.</p>
       {{/*  <a href="https://ee.kobotoolbox.org/ZZ7WnC6D"
         class="inline-block bg-green-500 text-white font-bold px-6 py-3 rounded-md text-xs lg:text-sm">RSVP for next
         meet</a>  */}}
     </div>
     <div
-      class="mx-auto flex flex-col lg:flex-row justify-center items-center space-y-8 lg:my-8 md:space-x-20 md:space-y-0">
+      class="mx-auto flex flex-col lg:flex-row justify-center items-center gap-x-8 gap-y-6 text-center">
       <a href="https://matrix.to/#/#kochifoss:matrix.org"
         class="flex items-center lg:space-x-2 hover:text-green-800 text-sm lg:text-lg">
         <span>Matrix<br />#kochifoss:matrix.org</span>
@@ -27,7 +26,6 @@
         <span>Telegram<br />@KochiFOSS</span>
       </a>
     </div>
-  </center>
 
   <div class="mt-16 my-4">
     {{ range .Paginator.Pages }}
@@ -50,7 +48,6 @@
                 <div>When: <span class="font-bold">{{ .Params.eventDate }}, {{ .Params.eventTime }}</span></div>
                 <!-- <div>സമയത്തിനും കാലത്തിനും വരിക 😌</div> -->
               </div>
-            </center>
             <div class="flex flex-col items-center lg:flex-row justify-center">
               {{ if .Params.rsvpLink }}
                 <button class="flex items-center bg-green-500 py-1 rounded-lg hover:bg-green-400 justify-center whitespace-nowrap">
@@ -66,14 +63,13 @@
             </div>
 
             {{ if .Params.note }}
-              <center>
+
                 <p class="text-sm mt-2 lg:mt-4">
                   {{ .Params.note }}
                   {{ if .Params.noteLink }}
                     <a class="font-bold space-y-2 text-blue-500 underline inline" style="text-decoration: none;" href={{ .Params.noteLink }}>🔗</a>
                   {{ end }}
                 </p>
-              </center>
             {{ end }}
           </div>
         </div>
@@ -106,9 +102,9 @@
       </div>
     </div>
     {{ end }}
-    <center>
+
       {{ template "_internal/pagination.html" . }}
-    </center>
+
   </div>
 </div>
 {{ end }}
