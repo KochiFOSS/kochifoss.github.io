@@ -33,3 +33,18 @@ html { font-family: 'Ubuntu', 'Manjari', sans-serif !important; }
   background-color: #CCC;
   cursor: not-allowed;
 }
+
+#article-content h2 {
+  margin: 1rem 0;
+  font-size: 1.5rem;
+}
+
+#article-content ul {
+  margin: 20px 0;
+  padding-left: 20px;
+  list-style-type: disc;
+}
+
+#article-content li {
+  padding: 5px 0;
+}
