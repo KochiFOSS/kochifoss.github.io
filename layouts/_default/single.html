@@ -1,34 +1,34 @@
 {{ define "main" }}
 <div class="container mx-auto px-4 lg:px-24 py-2">
-    <!-- Single Text -->
-    <div class="mb-4">
-      <p class="text-2xl font-bold">{{ .Params.title }}</p>
-    </div>
-
-    <!-- Two Texts -->
-    <div class="flex flex-col mb-4">
-      <p class="text-lg mr-2 text-sm lg:text-lg">Host: <a href={{ .Params.hostLocation }} target="_blank" class="underline">{{ .Params.host }}</a></p>
-      <p class="text-lg mr-2 text-sm lg:text-lg">Time & Date: {{ .Params.eventTime }}, {{ .Params.eventDate }}</p>
-    </div>
-
-    <!-- Two Buttons in a Row -->
-    <div class="flex mb-4 font-bold ">
-      <button class="bg-green-500 text-white px-4 py-2 rounded mr-4"> <a target="_blank" href={{ if .Params.isFuture}} {{ .Params.rsvpLink }}{{else}} {{ .Params.highlightsLink }}{{end}}>{{ if .Params.isFuture}} RSVP {{else}} 🎥 View highlights {{end}}</a></button>
-      {{ if .Params.isFuture}}
-        <button class="bg-green-500 text-white px-4 py-2 rounded"> <a href={{ .Params.cfpLink }}>Propose a talk!</a></button>
-      {{ end }}
-    </div>
-
-    <div id="article-content">
-      {{ .Content }}
-    </div>
-
-    <style>
-      #article-content img {
-        display: inline-block;
-        max-width: 400px;
-        margin: 5px;
-      }
-    </style>
+  <!-- Single Text -->
+  <div class="mb-4">
+    <p class="text-2xl font-bold">{{ .Params.title }}</p>
   </div>
+
+  <!-- Two Texts -->
+  <div class="flex flex-col mb-4">
+    <p class="text-lg mr-2 text-sm lg:text-lg">Host: <a href={{ .Params.hostLocation }} target="_blank" class="underline">{{ .Params.host }}</a></p>
+    <p class="text-lg mr-2 text-sm lg:text-lg">Time & Date: {{ .Params.eventTime }}, {{ .Params.eventDate }}</p>
+  </div>
+
+  <!-- Two Buttons in a Row -->
+  <div class="flex mb-4 font-bold ">
+    <button class="bg-green-500 text-white px-4 py-2 rounded mr-4"> <a target="_blank" href={{ if .Params.isFuture}} {{ .Params.rsvpLink }}{{else}} {{ .Params.highlightsLink }}{{end}}>{{ if .Params.isFuture}} RSVP {{else}} 🎥 View highlights {{end}}</a></button>
+    {{ if .Params.isFuture}}
+      <button class="bg-green-500 text-white px-4 py-2 rounded"> <a href={{ .Params.cfpLink }}>Propose a talk!</a></button>
+    {{ end }}
+  </div>
+
+  <div id="article-content">
+    {{ .Content }}
+  </div>
+
+  <style>
+    #article-content img {
+      display: inline-block;
+      max-width: 400px;
+      margin: 5px;
+    }
+  </style>
+</div>
 {{ end }}

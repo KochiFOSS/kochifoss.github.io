@@ -1,6 +1,6 @@
 @import url('https://smc.org.in/fonts/manjari.css');
 @import url('http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin');
-              
+
 html { font-family: 'Ubuntu', 'Manjari', sans-serif !important; }
 
 .pagination {
