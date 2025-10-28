@@ -2,10 +2,10 @@
 <div class="container mx-auto min-h flex flex-col items-center justify-center">
   <div class="w-full mb-8 flex flex-col items-center">
     <img src="/logo-color.svg" alt="Logo" class="w-2/3 h-2/3 md:w-3/12 md:h-auto mb-8">
-    <p class="text-sm lg:text-lg lg:w-3/4 lg:mb-6 text-center">A freewheeling community of developers and enthusiasts of സ്വതന്ത്ര/Free/Libre and Open Source Software who gather in person for laid-back meetups in Kochi, India.</p>
+    <p class="text-sm lg:text-lg lg:w-3/4 lg:mb-6 text-center">A freewheeling community of developers and enthusiasts of
+      സ്വതന്ത്ര/Free/Libre and Open Source Software who gather in person for laid-back meetups in Kochi, India.</p>
   </div>
-  <div
-    class="mx-auto flex flex-col lg:flex-row justify-center items-center gap-x-16 gap-y-6 text-center">
+  <div class="mx-auto flex flex-col lg:flex-row justify-center items-center gap-x-16 gap-y-6 text-center">
     <a href="https://matrix.to/#/#kochifoss:matrix.org"
       class="flex items-center lg:space-x-2 hover:text-green-800 text-sm lg:text-lg">
       <span>Matrix<br />#kochifoss:matrix.org</span>
@@ -32,62 +32,66 @@
               <h2 class="font-bold text-xl items-center">{{ .Params.title }}</h2>
               <div class="flex-col space-y-2 my-4">
                 <div>
-                  Host: <a class="font-bold space-y-2 text-blue-500 underline" target="_blank" href="{{ .Params.hostLocation }}">{{
-                    .Params.host }}</a><br/>
+                  Host: <a class="font-bold space-y-2 text-blue-500 underline" target="_blank"
+                    href="{{ .Params.hostLocation }}">{{
+                    .Params.host }}</a><br />
                 </div>
                 <div>{{ .Params.hostCoords }}</div>
                 <div>{{ .Params.description }}</div>
                 <div>When: <span class="font-bold">{{ .Params.eventDate }}, {{ .Params.eventTime }}</span></div>
                 <!-- <div>സമയത്തിനും കാലത്തിനും വരിക 😌</div> -->
               </div>
-            <div class="flex flex-col items-center lg:flex-row justify-center">
-              {{ if .Params.rsvpLink }}
-                <button class="flex items-center bg-green-500 py-1 rounded-lg hover:bg-green-400 justify-center whitespace-nowrap">
+              <div class="flex flex-col items-center lg:flex-row justify-center">
+                {{ if .Params.rsvpLink }}
+                <button
+                  class="flex items-center bg-green-500 py-1 rounded-lg hover:bg-green-400 justify-center whitespace-nowrap">
                   <a href="/rsvp" class="text-xs lg:text-sm text-white font-bold py-1 px-6">Register to attend</a>
                 </button>
-              {{ end }}
-              {{ if .Params.cfpLink }}
-                <button class="flex items-center bg-green-500 py-1 px-2 lg:mt-0 lg:ms-2 mt-2 rounded-lg hover:bg-green-400 justify-center whitespace-nowrap">
+                {{ end }}
+                {{ if .Params.cfpLink }}
+                <button
+                  class="flex items-center bg-green-500 py-1 px-2 lg:mt-0 lg:ms-2 mt-2 rounded-lg hover:bg-green-400 justify-center whitespace-nowrap">
                   <a href="/cfp" class="text-xs lg:text-sm
                   text-white font-bold py-1 px-6">Propose a talk!</a>
                 </button>
-              {{ end }}
-            </div>
+                {{ end }}
+              </div>
 
-            {{ if .Params.note }}
-                <p class="text-sm mt-2 lg:mt-4">
-                  {{ .Params.note | safe.HTML }}
-                  {{ if .Params.noteLink }}
-                    <a class="font-bold space-y-2 text-blue-500 underline inline" style="text-decoration: none;" href={{ .Params.noteLink }}>🔗</a>
-                  {{ end }}
-                </p>
-            {{ end }}
+              {{ if .Params.note }}
+              <p class="text-sm mt-2 lg:mt-4">
+                {{ .Params.note | safe.HTML }}
+                {{ if .Params.noteLink }}
+                <a class="font-bold space-y-2 text-blue-500 underline inline" style="text-decoration: none;" href={{
+                  .Params.noteLink }}>🔗</a>
+                {{ end }}
+              </p>
+              {{ end }}
           </div>
         </div>
         {{ else }}
         <div class="flex flex-row">
-          <div class="text-gray-800 text-xs lg:text-sm mx-3 lg:w-1/2 py-6">{{ .Params.eventDate }}</div>
-
-        <div class="inline-block w-0.5 self-stretch bg-gray-400"></div>
-
-
-        <div class="flex flex-col py-4 lg:w-1/2">
-          <div class="px-4">
-            <h2 class="text-sm lg:text-lg font-semibold mb-1">{{ .Params.title }}</h2>
-            <p class="text-gray-600 mb-4 text-xs lg:text-sm whitespace-nowrap">{{ .Params.host }}</p>
-            <div class="flex space-x-4">
-              <div class="flex items-center border border-gray-500 px-2 py-1 rounded-lg hover:bg-white text-gray-700 whitespace-nowrap">
-                <span class="text-xs lg:text-sm">📄</span>
-                <a href={{ .Params.path }} class="text-xs lg:text-sm ms-1">Read more</a>
+          <div class="text-gray-800 text-xs lg:text-sm mx-3 py-6 w-20 lg:w-1/2">
+            <p>{{ .Params.eventDate }}</p>
+          </div>
+          <div class="w-0.5 bg-gray-400"></div>
+          <div class="flex flex-col py-4 flex-1 lg:w-1/2">
+            <div class="px-4 max-w-64 mt-1 sm:max-w-none">
+              <h2 class="text-sm lg:text-lg font-semibold mb-1">{{ .Params.title }}</h2>
+              <p class="text-gray-600 mb-4 text-xs lg:text-sm lg:whitespace-nowrap">{{ .Params.host }}</p>
+              <div class="flex space-x-4">
+                <div
+                  class="flex items-center border border-gray-500 px-2 py-1 rounded-lg hover:bg-white text-gray-700 whitespace-nowrap">
+                  <span class="text-xs lg:text-sm">📄</span>
+                  <a href={{ .Params.path }} class="text-xs lg:text-sm ms-1">Read more</a>
+                </div>
+                <button
+                  class="flex items-center space-x-2 border border-gray-500 px-2 py-1 text-gray-700 rounded-lg hover:bg-white  whitespace-nowrap">
+                  <span class="text-xs lg:text-sm">🎥</span>
+                  <a href={{ .Params.highlightsLink }} class="text-xs lg:text-sm" target="_blank">View highlights</a>
+                </button>
               </div>
-              <button
-                class="flex items-center space-x-2 border border-gray-500 px-2 py-1 text-gray-700 rounded-lg hover:bg-white  whitespace-nowrap">
-                <span class="text-xs lg:text-sm">🎥</span>
-                <a href={{ .Params.highlightsLink }} class="text-xs lg:text-sm" target="_blank">View highlights</a>
-              </button>
             </div>
           </div>
-        </div>
         </div>
         {{ end }}
       </div>
@@ -97,7 +101,8 @@
     {{ template "_internal/pagination.html" . }}
 
     <div class="mt-12 text-center">
-      <img src="https://kochifoss.org/images/group.png" class="inline-block w-1/2 h-1/2 md:w-5/12 lg:h-auto object-cover rounded-lg shadow-lg">
+      <img src="https://kochifoss.org/images/group.png"
+        class="inline-block w-1/2 h-1/2 md:w-5/12 lg:h-auto object-cover rounded-lg shadow-lg">
     </div>
   </div>
 </div>
