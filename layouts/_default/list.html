@@ -66,28 +66,27 @@
         </div>
         {{ else }}
         <div class="flex flex-row">
-          <div class="text-gray-800 text-xs lg:text-sm mx-3 lg:w-1/2 py-6">{{ .Params.eventDate }}</div>
-
-        <div class="inline-block w-0.5 self-stretch bg-gray-400"></div>
-
-
-        <div class="flex flex-col py-4 lg:w-1/2">
-          <div class="px-4">
-            <h2 class="text-sm lg:text-lg font-semibold mb-1">{{ .Params.title }}</h2>
-            <p class="text-gray-600 mb-4 text-xs lg:text-sm whitespace-nowrap">{{ .Params.host }}</p>
-            <div class="flex space-x-4">
-              <div class="flex items-center border border-gray-500 px-2 py-1 rounded-lg hover:bg-white text-gray-700 whitespace-nowrap">
-                <span class="text-xs lg:text-sm">📄</span>
-                <a href={{ .Params.path }} class="text-xs lg:text-sm ms-1">Read more</a>
+          <div class="text-gray-800 text-xs lg:text-sm mx-3 py-6 w-20 lg:w-1/2">
+            <p>{{ .Params.eventDate }}</p>
+          </div>
+          <div class="w-0.5 bg-gray-400"></div>
+          <div class="flex flex-col py-4 lg:w-1/2">
+            <div class="px-4 max-w-64 mt-1 lg:max-w-none">
+              <h2 class="text-sm lg:text-lg font-semibold mb-1">{{ .Params.title }}</h2>
+              <p class="text-gray-600 mb-4 text-xs lg:text-sm lg:whitespace-nowrap">{{ .Params.host }}</p>
+              <div class="flex space-x-4">
+                <div class="flex items-center border border-gray-500 px-2 py-1 rounded-lg hover:bg-white text-gray-700 whitespace-nowrap">
+                  <span class="text-xs lg:text-sm">📄</span>
+                  <a href={{ .Params.path }} class="text-xs lg:text-sm ms-1">Read more</a>
+                </div>
+                <button
+                  class="flex items-center space-x-2 border border-gray-500 px-2 py-1 text-gray-700 rounded-lg hover:bg-white  whitespace-nowrap">
+                  <span class="text-xs lg:text-sm">🎥</span>
+                  <a href={{ .Params.highlightsLink }} class="text-xs lg:text-sm" target="_blank">View highlights</a>
+                </button>
               </div>
-              <button
-                class="flex items-center space-x-2 border border-gray-500 px-2 py-1 text-gray-700 rounded-lg hover:bg-white  whitespace-nowrap">
-                <span class="text-xs lg:text-sm">🎥</span>
-                <a href={{ .Params.highlightsLink }} class="text-xs lg:text-sm" target="_blank">View highlights</a>
-              </button>
             </div>
           </div>
-        </div>
         </div>
         {{ end }}
       </div>
