@@ -3,6 +3,11 @@
 
 html { font-family: 'Ubuntu', 'Manjari', sans-serif !important; }
 
+p a[href] {
+  text-decoration: underline;
+  color: rgb(59, 130, 246);
+}
+
 .pagination {
   display: flex;
   justify-content: center;

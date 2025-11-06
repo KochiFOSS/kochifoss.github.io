@@ -56,7 +56,7 @@
 
             {{ if .Params.note }}
                 <p class="text-sm mt-2 lg:mt-4">
-                  {{ .Params.note | safe.HTML }}
+                  {{ .Params.note | markdownify }}
                   {{ if .Params.noteLink }}
                     <a class="font-bold space-y-2 text-blue-500 underline inline" style="text-decoration: none;" href={{ .Params.noteLink }}>🔗</a>
                   {{ end }}
