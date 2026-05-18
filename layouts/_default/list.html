@@ -19,80 +19,43 @@
     </a>
   </div>
 
-  <div class="mt-16 text-center flex-col space-y-4">
-    <div class="text-sm lg:text-lg">
-      <p>കൊച്ചിഫോസ്സ് ഒത്തുചേരലിൽ ഒരു വിഷയം സംസാരിക്കാൻ ആഗ്രഹിക്കുന്നുവോ?</p>
-      <p>Submit your talk proposal anytime. We will let you know if your talk is accepted for the upcoming meetup.</p>
-      <p>Previously we accepted proposals per monthly talk. We're changing this to do a meetup when we have enough talks.</p>
-    </div>
-    <button class="inline-flex items-center bg-green-500 py-1 px-2 lg:mt-0 lg:ms-2 mt-2 rounded-lg hover:bg-green-400 justify-center whitespace-nowrap">
-      <a href="/cfp" class="text-xs lg:text-sm text-white font-bold py-1 px-6">Propose a talk!</a>
-    </button>
-  </div>
+  {{ $firstPost := index .Paginator.Pages 0 }}
+
+  {{ if $firstPost.Params.isFuture }}
+    {{ partial "rsvp-callout" $firstPost }}
+  {{ end }}
+
+  {{ partial "cfp-callout" . }}
 
   <div class="mt-16 my-4">
     {{ range .Paginator.Pages }}
     <div class=" flex items-center justify-center">
       <div class="flex items-center space-x-4">
 
-        {{ if .Params.isFuture }}
-
-        <div class="flex justify-center mb-4 lg:mb-8">
-          <div class="flex flex-col gap-y-2 bg-gray-200 py-4 px-8 rounded-lg">
-            <center>
-              <h2 class="font-bold text-xl items-center">{{ .Params.title }}</h2>
-              <div class="flex-col space-y-2 my-4">
-                <div>
-                  Host: <a class="font-bold space-y-2 text-blue-500 underline" target="_blank" href="{{ .Params.hostLocation }}">{{
-                    .Params.host }}</a><br/>
-                </div>
-                <div>{{ .Params.hostCoords }}</div>
-                <div>{{ .Params.description }}</div>
-                <div>When: <span class="font-bold">{{ .Params.eventDate }}, {{ .Params.eventTime }}</span></div>
-                <!-- <div>സമയത്തിനും കാലത്തിനും വരിക 😌</div> -->
-              </div>
-            <div class="flex flex-col items-center lg:flex-row justify-center">
-              {{ if .Params.rsvpLink }}
-                <button class="flex items-center bg-green-500 py-1 rounded-lg hover:bg-green-400 justify-center whitespace-nowrap">
-                  <a href="/rsvp" class="text-xs lg:text-sm text-white font-bold py-1 px-6">Register to attend</a>
-                </button>
-              {{ end }}
+        {{ if not .Params.isFuture }}
+          <div class="flex flex-row">
+            <div class="text-gray-800 text-xs lg:text-sm mx-3 py-6 w-20 lg:w-1/2">
+              <p>{{ .Params.eventDate }}</p>
             </div>
-
-            {{ if .Params.note }}
-                <p class="text-sm mt-2 lg:mt-4">
-                  {{ .Params.note | markdownify }}
-                  {{ if .Params.noteLink }}
-                    <a class="font-bold space-y-2 text-blue-500 underline inline" style="text-decoration: none;" href={{ .Params.noteLink }}>🔗</a>
-                  {{ end }}
-                </p>
-            {{ end }}
-          </div>
-        </div>
-        {{ else }}
-        <div class="flex flex-row">
-          <div class="text-gray-800 text-xs lg:text-sm mx-3 py-6 w-20 lg:w-1/2">
-            <p>{{ .Params.eventDate }}</p>
-          </div>
-          <div class="w-0.5 bg-gray-400"></div>
-          <div class="flex flex-col py-4 lg:w-1/2">
-            <div class="px-4 max-w-64 mt-1 lg:max-w-none">
-              <h2 class="text-sm lg:text-lg font-semibold mb-1">{{ .Params.title }}</h2>
-              <p class="text-gray-600 mb-4 text-xs lg:text-sm lg:whitespace-nowrap">{{ .Params.host }}</p>
-              <div class="flex space-x-4">
-                <div class="flex items-center border border-gray-500 px-2 py-1 rounded-lg hover:bg-white text-gray-700 whitespace-nowrap">
-                  <span class="text-xs lg:text-sm">📄</span>
-                  <a href="{{ .RelPermalink }}" class="text-xs lg:text-sm ms-1">Read more</a>
+            <div class="w-0.5 bg-gray-400"></div>
+            <div class="flex flex-col py-4 lg:w-1/2">
+              <div class="px-4 max-w-64 mt-1 lg:max-w-none">
+                <h2 class="text-sm lg:text-lg font-semibold mb-1">{{ .Params.title }}</h2>
+                <p class="text-gray-600 mb-4 text-xs lg:text-sm lg:whitespace-nowrap">{{ .Params.host }}</p>
+                <div class="flex space-x-4">
+                  <div class="flex items-center border border-gray-500 px-2 py-1 rounded-lg hover:bg-white text-gray-700 whitespace-nowrap">
+                    <span class="text-xs lg:text-sm">📄</span>
+                    <a href={{ .Params.path }} class="text-xs lg:text-sm ms-1">Read more</a>
+                  </div>
+                  <button
+                    class="flex items-center space-x-2 border border-gray-500 px-2 py-1 text-gray-700 rounded-lg hover:bg-white  whitespace-nowrap">
+                    <span class="text-xs lg:text-sm">🎥</span>
+                    <a href={{ .Params.highlightsLink }} class="text-xs lg:text-sm" target="_blank">View highlights</a>
+                  </button>
                 </div>
-                <button
-                  class="flex items-center space-x-2 border border-gray-500 px-2 py-1 text-gray-700 rounded-lg hover:bg-white  whitespace-nowrap">
-                  <span class="text-xs lg:text-sm">🎥</span>
-                  <a href={{ .Params.highlightsLink }} class="text-xs lg:text-sm" target="_blank">View highlights</a>
-                </button>
               </div>
             </div>
           </div>
-        </div>
         {{ end }}
       </div>
     </div>
