@@ -1,4 +1,6 @@
-baseURL = 'kochifoss.github.io'
-languageCode = 'en-us'
+baseURL = 'https://kochifoss.github.io/'
+locale = 'en-us'
 title = 'KochiFOSS'
-paginate = 10
+
+[pagination]
+  pagerSize = 10
