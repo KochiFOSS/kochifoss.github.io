@@ -13,7 +13,11 @@
 
   <!-- Two Buttons in a Row -->
   <div class="flex mb-4 font-bold ">
-    <button class="bg-green-500 text-white px-4 py-2 rounded mr-4"> <a target="_blank" href={{ if .Params.isFuture}} {{ .Params.rsvpLink }}{{else}} {{ .Params.highlightsLink }}{{end}}>{{ if .Params.isFuture}} Register to attend {{else}} 🎥 View highlights {{end}}</a></button>
+    {{ if and (.Params.isFuture) (.Params.rsvpLink)}}
+      <button class="bg-green-500 text-white px-4 py-2 rounded mr-4"> <a target="_blank" href={{ .Params.rsvpLink }}>Register to attend</a></button>
+    {{ else if (.Params.highlightsLink) }}
+      <button class="bg-green-500 text-white px-4 py-2 rounded mr-4"> <a target="_blank" href={{ .Params.highlightsLink }}>🎥 View highlights</a></button>
+    {{ end }}
   </div>
 
   <div id="article-content">
