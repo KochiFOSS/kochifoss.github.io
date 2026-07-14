@@ -1,0 +1,10 @@
+<figure class="svg-container">
+  {{ (readFile (print "static/" (index .Params 0)) | safeHTML) }}
+</figure>
+
+<style>
+  .svg-container svg {
+    width: 100%;
+    height: 100%;
+  }
+</style>
