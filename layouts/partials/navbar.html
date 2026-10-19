@@ -1,7 +1,13 @@
 <nav>
-  <div class="relative flex justify-between px-2">
+  <div class="relative flex justify-between px-2 pt-5">
     <a href="{{ site.Home.RelPermalink }}" class="text-grey font-bold text-lg">
-      <img src="{{ "logo-color.svg" | relURL }}" alt="Logo" class="w-8 h-8 md:w-12 md:h-12">
+      <img src="{{ "logo_round_yellow.svg" | relURL }}" id="logo" alt="Logo" class="w-8 h-8 md:w-12 md:h-12">
+      <script>
+        const logos = ["logo_round_yellow.svg", "logo_round_cyan.svg", "logo_round_raspberry.svg", "logo-color.svg"];
+        const logoIndex = Math.floor(Math.random() * 4);
+        const imgUrl = '{{ "meow" | relURL }}';
+        document.getElementById("logo").setAttribute("src", imgUrl.replace("meow", logos[logoIndex]))
+      </script>
     </a>
     <div class="flex items-center justify-center">
       <div class="hidden sm:block sm:ml-6">
